@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2022-10-05 Wed 22:25 -->
+<!-- 2022-10-06 Thu 18:16 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Data Communications &amp; Networks</title>
@@ -202,24 +202,98 @@
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents" role="doc-toc">
 <ul>
-<li><a href="#orgefe72c3">1. Osi and TCI/IP model</a>
+<li><a href="#orged90fb0">1. Data Communications</a>
 <ul>
-<li><a href="#org2de1eb6">1.1. What is OSI model?</a></li>
-<li><a href="#org9c00f0c">1.2. What is TCP/IP model?</a></li>
+<li><a href="#org76c70a9">1.1. Components</a></li>
+<li><a href="#org2e4f07f">1.2. Data Representation</a></li>
+<li><a href="#orga1e5b7e">1.3. Data Flow</a></li>
+</ul>
+</li>
+<li><a href="#orgb7efa74">2. Osi and TCI/IP model</a>
+<ul>
+<li><a href="#org2760810">2.1. What is OSI model?</a></li>
+<li><a href="#org5f2f4f5">2.2. What is TCP/IP model?</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 
-
-<div id="outline-container-orgefe72c3" class="outline-2">
-<h2 id="orgefe72c3"><span class="section-number-2">1.</span> Osi and TCI/IP model</h2>
+<div id="outline-container-orged90fb0" class="outline-2">
+<h2 id="orged90fb0"><span class="section-number-2">1.</span> Data Communications</h2>
 <div class="outline-text-2" id="text-1">
+<ul class="org-ul">
+<li>Data communications are the exchange of data between two devices via some form of transmission medium such as a wire cable.</li>
+<li>The effectiveness of a data communications system depends on four fundamental characteristics:
+<ol class="org-ol">
+<li>Delivery - The system must deliver data to the correct destination.</li>
+<li>Accuracy - The system must deliver the data accurately. Data that have been altered in transmission and left uncorrected are unusable.</li>
+<li>Timeliness - The system must deliver data in a timely manner. Data delivered late are useless.</li>
+<li>Jitter - Jitter refers to the variation in the packet arrival time. It is the uneven delay in the delivery of audio or video packets.</li>
+</ol></li>
+</ul>
 </div>
-<div id="outline-container-org2de1eb6" class="outline-3">
-<h3 id="org2de1eb6"><span class="section-number-3">1.1.</span> What is OSI model?</h3>
+
+<div id="outline-container-org76c70a9" class="outline-3">
+<h3 id="org76c70a9"><span class="section-number-3">1.1.</span> Components</h3>
 <div class="outline-text-3" id="text-1-1">
+<ul class="org-ul">
+<li>A data communications system has five components.
+<ol class="org-ol">
+<li>Message - The data to be transmitted.</li>
+<li>Sender - The one who sends.</li>
+<li>Receiver - The one who receives.</li>
+<li>Transmission medium - Through which the data is sent.</li>
+<li>Protocol - The set of rules followed during the transmission of data.</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2e4f07f" class="outline-3">
+<h3 id="org2e4f07f"><span class="section-number-3">1.2.</span> Data Representation</h3>
+<div class="outline-text-3" id="text-1-2">
+<ul class="org-ul">
+<li>Information today comes in different forms such as:
+<ol class="org-ol">
+<li>Text</li>
+<li>Numbers</li>
+<li>Images</li>
+<li>Audio</li>
+<li>Video</li>
+</ol></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orga1e5b7e" class="outline-3">
+<h3 id="orga1e5b7e"><span class="section-number-3">1.3.</span> Data Flow</h3>
+<div class="outline-text-3" id="text-1-3">
+<ul class="org-ul">
+<li><p>
+Communication between two devices can be simplex, half-duplex, or full-duplex.
+</p>
+
+
+<div id="orga40058b" class="figure">
+<p><img src="./../Images/Fig1.png" alt="Fig1.png" />
+</p>
+</div></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+<div id="outline-container-orgb7efa74" class="outline-2">
+<h2 id="orgb7efa74"><span class="section-number-2">2.</span> Osi and TCI/IP model</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org2760810" class="outline-3">
+<h3 id="org2760810"><span class="section-number-3">2.1.</span> What is OSI model?</h3>
+<div class="outline-text-3" id="text-2-1">
 <ul class="org-ul">
 <li>The OSI stands for Open System Interconnection, which was developed in 1980s. It is a conceptual model used for network communication. It is not implemented entirely, but it is still referenced today. This OSI model consists of seven layers, they are :-
 <ul class="org-ul">
@@ -235,9 +309,9 @@
 </ul>
 </div>
 </div>
-<div id="outline-container-org9c00f0c" class="outline-3">
-<h3 id="org9c00f0c"><span class="section-number-3">1.2.</span> What is TCP/IP model?</h3>
-<div class="outline-text-3" id="text-1-2">
+<div id="outline-container-org5f2f4f5" class="outline-3">
+<h3 id="org5f2f4f5"><span class="section-number-3">2.2.</span> What is TCP/IP model?</h3>
+<div class="outline-text-3" id="text-2-2">
 <ul class="org-ul">
 <li>The TCP model stands for Transmission Control Protocol, whereas IP stands for Internet Protocol. A number of protocols that make the internet possibly comes under the TCP/IP model. Nowadays, we do not hear the name of the TCP/IP model much, we generally hear the name of the IPv4 or IPv6, but it is still valid. This model consists of 4 layers. They are :-
 <ul class="org-ul">
@@ -253,7 +327,7 @@
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Shuwais Soudager</p>
-<p class="date">Created: 2022-10-05 Wed 22:25</p>
+<p class="date">Created: 2022-10-06 Thu 18:16</p>
 </div>
 </body>
 </html>

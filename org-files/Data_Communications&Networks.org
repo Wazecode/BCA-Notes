@@ -1,6 +1,38 @@
 #+title: Data Communications & Networks
 #+description: This is notes for BCA semester 3 data communications and networks
 #+author: Shuwais Soudager
+#+export_file_name: ../html-files/DCCN.html
+
+* Data Communications
+- Data communications are the exchange of data between two devices via some form of transmission medium such as a wire cable.
+- The effectiveness of a data communications system depends on four fundamental characteristics:
+  1. Delivery - The system must deliver data to the correct destination.
+  2. Accuracy - The system must deliver the data accurately. Data that have been altered in transmission and left uncorrected are unusable.
+  3. Timeliness - The system must deliver data in a timely manner. Data delivered late are useless.
+  4. Jitter - Jitter refers to the variation in the packet arrival time. It is the uneven delay in the delivery of audio or video packets.
+
+** Components
+- A data communications system has five components.
+  1. Message - The data to be transmitted.
+  2. Sender - The one who sends.
+  3. Receiver - The one who receives.
+  4. Transmission medium - Through which the data is sent.
+  5. Protocol - The set of rules followed during the transmission of data.
+
+** Data Representation
+- Information today comes in different forms such as:
+  1. Text
+  2. Numbers
+  3. Images
+  4. Audio
+  5. Video
+
+** Data Flow
+- Communication between two devices can be simplex, half-duplex, or full-duplex.
+
+  [[./../Images/Fig1.png]]
+
+
 
 
 * Osi and TCI/IP model
