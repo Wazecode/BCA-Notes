@@ -1,0 +1,57 @@
+                    ________________________________
+
+                     DATA COMMUNICATIONS & NETWORKS
+
+                            Shuwais Soudager
+                    ________________________________
+
+
+Table of Contents
+_________________
+
+1. Osi and TCI/IP model
+.. 1. What is OSI model?
+.. 2. What is TCP/IP model?
+
+
+
+
+
+1 Osi and TCI/IP model
+======================
+
+1.1 What is OSI model?
+~~~~~~~~~~~~~~~~~~~~~~
+
+  - The OSI stands for Open System Interconnection, which was developed
+    in 1980s. It is a conceptual model used for network communication.
+    It is not implemented entirely, but it is still referenced today.
+    This OSI model consists of seven layers, they are :-
+    - Application
+    - Presentation
+    - Session
+    - Transport
+    - Networks
+    - Data link
+    - Physical
+  - The data moves down the OSI model, and each layer adds additional
+    information. The data moves down until it reaches the last layer of
+    the OSI model. When the data is received at the last layer of the
+    OSI model, then the data is transmitted over the network. Once the
+    data is reached on the other side, then the process will get
+    reversed.
+
+
+1.2 What is TCP/IP model?
+~~~~~~~~~~~~~~~~~~~~~~~~~
+
+  - The TCP model stands for Transmission Control Protocol, whereas IP
+    stands for Internet Protocol. A number of protocols that make the
+    internet possibly comes under the TCP/IP model. Nowadays, we do not
+    hear the name of the TCP/IP model much, we generally hear the name
+    of the IPv4 or IPv6, but it is still valid. This model consists of 4
+    layers. They are :-
+    - Application
+    - Transport
+    - Network
+    - Internet Access
