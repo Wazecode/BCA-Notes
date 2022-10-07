@@ -66,6 +66,12 @@ A multipoint (also called multidrop) connection is one in which more than two sp
 
 [[./../Images/Fig2.png]]
 
+*** Physical Topology
+- The term physical topology refers to the way in which a network is laid out physically.
+- The topology of a network is the geometric representation of the relationship of all the links and linking devices (usually called nodes) to one another.
+- There are four basic topologies possible: mesh, star, bus and ring.
+
+
 
 * Osi and TCI/IP model
 ** What is OSI model?
