@@ -71,6 +71,23 @@ A multipoint (also called multidrop) connection is one in which more than two sp
 - The topology of a network is the geometric representation of the relationship of all the links and linking devices (usually called nodes) to one another.
 - There are four basic topologies possible: mesh, star, bus and ring.
 
+*** Mesh Topology
+- In a mesh topology, every device has a dedicated point-to-point link to every other device.
+- Total number of connections is n(n - 1)/2
+- Advantages
+  1. Use of dedicated links guarantees that each connection can carry its own data load, thus eliminating the traffic problems
+  2. If one link becomes unusable, it does not incapacitate the entire system
+  3. There is the advantage of privacy or security.
+- Disadvantages
+  1. Because every device must be connected to every other device, installation and reconnection are difficult
+  2. The sheer bulk of the wiring can be greater than the available spac
+  3. The hardware required to connect each link (I/O ports and cable) can be prohibitively expensive
+- One practical example of a mesh topology is the connection of telephone regional offices in which each regional office needs to be connected to every other regional office.
+
+[[./../Images/Fig3.png]]
+
+*** Star Topology
+
 
 
 * Osi and TCI/IP model
