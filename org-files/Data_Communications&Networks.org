@@ -3,6 +3,7 @@
 #+author: Shuwais Soudager
 #+export_file_name: ../html-files/DCCN.html
 #+setupfile: https://fniessen.github.io/org-html-themes/org/theme-readtheorg.setup
+#+options: num:nil
 
 * Data Communications
 - Data communications are the exchange of data between two devices via some form of transmission medium such as a wire cable.
@@ -44,9 +45,26 @@
 - Example - Using phone to talk to each other
 
 * Networks
-A network is the interconnection of a set of devices capable of communication.
+- A network is the interconnection of a set of devices capable of communication.
+- Host is the device ex: laptop, mobile.
+- Connecting device is something that connects device to other networks ex: router, switches.
 
+** Network Criteria
+- A network must be able to meet a certain number of criteria. The most important of these are:
+  1. Performance
+  2. Reliability
+  3. Security
 
+** Physical Structures
+Before discussing networks, we need to define some network attributes.
+*** Types of Connections
+There are two possible types of connections: point-to-point and multipoint.
+**** Point-to-Point
+A point-to-point connection provides a dedicated link between two devices.
+**** Multipoint
+A multipoint (also called multidrop) connection is one in which more than two specific devices share a single link
+
+[[./../Images/Fig2.png]]
 
 
 * Osi and TCI/IP model
