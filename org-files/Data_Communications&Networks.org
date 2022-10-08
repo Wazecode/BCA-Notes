@@ -122,9 +122,18 @@ A multipoint (also called multidrop) connection is one in which more than two sp
   - Unidirectional traffic can be a disadvantage.
   - Break in the ring can disable the whole system.
 
-  
-
-
+** Network Types
+- They are two main types of networks, they are LAN and WAN.
+**** LAN ( Local Area Network )
+- A local area network (LAN) is usually privately owned and connects some hosts in a single office, building, or campus.
+**** WAN ( Wide Area Network )
+- A wide area network (WAN) is also an interconnection of devices capable of communication on a wider geographical span, spanning a town, a state, a country, or even the world.
+***** Point-to-Point WAN
+A point-to-point WAN is a network that connects two communicating devices through a transmission media (cable or air)
+[[./../Images/Fig7.png]]
+***** Switched WAN
+A switched WAN is a network with more than two ends, We can say that a switched WAN is a combination of several point-to-point WANs that are connected by switches.
+[[./../Images/Fig8.png]]
 
 * Osi and TCI/IP model
 ** What is OSI model?
