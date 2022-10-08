@@ -87,6 +87,22 @@ A multipoint (also called multidrop) connection is one in which more than two sp
 [[./../Images/Fig3.png]]
 
 *** Star Topology
+- In a star topology, each device has a dedicated point-to-point link only to a central controller, usually called a hub. The devices are not directly linked to one another
+[[./../Images/Fig4.png]]
+
+- Advantages
+  - A star topology is less expensive than a mesh topology.
+  - less cabling than mesh topology.
+  - easy to configure.
+  - Robustness - If one link fails, only that link is affected.
+- Disadvantages
+  - If the hub goes down the whole system goes down.
+  - More cabling required than the bus and ring topologies
+- The star topology is used in local-area network.
+
+*** Bus topology
+- A bus topology is a multipoint connection. One long cable acts as a backbone to link all the devices in a network. Nodes are connected to the bus cable by drop lines and tap.
+  [[./../Images/Fig5.png]]
 
 
 
