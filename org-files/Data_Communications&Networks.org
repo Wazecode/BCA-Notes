@@ -100,9 +100,29 @@ A multipoint (also called multidrop) connection is one in which more than two sp
   - More cabling required than the bus and ring topologies
 - The star topology is used in local-area network.
 
-*** Bus topology
+*** Bus Topology
 - A bus topology is a multipoint connection. One long cable acts as a backbone to link all the devices in a network. Nodes are connected to the bus cable by drop lines and tap.
   [[./../Images/Fig5.png]]
+- Advantages
+  - ease of installation.
+  - less cabling than the mesh and topologies
+- Disadvantages
+  - Difficult reconnection.
+  - Signal reflection at the taps can cause degradation in quality.
+  - A fault or break in the bus cable stops all transmission.
+
+*** Ring Topology
+- In a ring topology, each device has a dedicated point-to-point connection with only the two devices on either side of it.
+  [[./../Images/Fig6.png]]
+- Advantages
+  - Relatively easy to install and reconfigure
+  - To add or delete a device requires changing only two connections.
+  - Fault isolation is simplified
+- Disadvantages
+  - Unidirectional traffic can be a disadvantage.
+  - Break in the ring can disable the whole system.
+
+  
 
 
 
