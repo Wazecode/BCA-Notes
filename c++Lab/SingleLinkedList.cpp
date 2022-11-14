@@ -1,4 +1,3 @@
-#include <cstdio>
 #include <iostream>
 #include <assert.h>
 using namespace std;
@@ -132,6 +131,7 @@ int main() {
 					"5. print\n"
 					"6. reverse\n"
 					"7. length\n"
+					"8. delete\n"
 					"h. help\n"
 					"q, quit\n";
 	
