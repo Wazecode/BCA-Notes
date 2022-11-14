@@ -1,3 +1,4 @@
+#include <cstdio>
 #include <iostream>
 #include <assert.h>
 using namespace std;
@@ -72,7 +73,7 @@ void Llist::print() {
     cout << endl;
 }
 
-void Llist::insert(int val, int key) {
+void Llist::insert(int key, int val) {
 	assert(key <= length() && key >= 0);
 	node *tmp = head;
 	node *n = new node(val);
@@ -106,21 +107,53 @@ void Llist::reverse() {
 }
 
 int main() {
-    Llist n;
-    cout << n.length() << endl;
-    n.append(5);
-    cout << n.length() << endl;
-    n.append(8);
-    n.append(7);
-	n.insert(10, 2);
-	n.poke(0, 2);
-	cout << n.peek(0)->data;
-	n.print();
-
-	cout << endl;
-	n.reverse();
-	n.print();
-    cout << n.length();
-
+	
+	Llist list;
+	int x,y;
+	char opt;
+	
+	const char *help =	"1. append\n"
+					"2. peek\n"
+					"3. poke\n"
+					"4. insert\n"
+					"5. print\n"
+					"6. reverse\n"
+					"7. length\n"
+					"h. help\n"
+					"q, quit\n";
+	
+	while(1) {
+		cout << "Enter an option(h for help):";
+		cin >> opt;
+		switch(opt) {
+			case '1' : cout << "Enter the value to append: ";
+					   cin >> x;
+					   list.append(x);
+					   break;
+			case '2' : cout << "Enter the position to peek: ";
+					   cin >> x;
+					   cout << "value: " << list.peek(x) << endl;
+					   break;
+			case '3' : cout << "Enter the position and value: ";
+					   cin >> x >> y;
+					   list.poke(x, y);
+					   break;
+			case '4' : cout << "Enter the position and value: ";
+					   cin >> x >> y;
+					   list.insert(x, y);
+					   break;
+			case '5' : cout << "the items in the list are" << endl;
+					   list.print();
+					   break;
+			case '6' : list.reverse();
+					   break;
+			case '7' : cout << list.length() << endl;
+					   break;
+		 	case 'h' : puts(help);
+					   break;
+			case 'q' : return 0;
+			default : cout << "Invalid Input" << endl;
+		}
+	}
     return 0;
 }
