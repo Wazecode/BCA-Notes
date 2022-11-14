@@ -24,6 +24,7 @@ class Llist {
         int length();
         node* peek(int);
         void append(int);
+		void del(int);
         void print();
         void insert(int,int);
         void poke(int, int);
@@ -63,6 +64,18 @@ void Llist::append(int val) {
         tmp->link = n;
     }
 }
+
+void Llist::del(int pos) {
+	node *tmp = head;
+	if(pos == 0){
+		head = tmp->link;
+		delete tmp;
+	} else {
+		tmp = peek(pos - 1);
+		tmp ->link = tmp->link->link;
+	}
+}
+		
 
 void Llist::print() {
     node *tmp = head;
@@ -148,6 +161,10 @@ int main() {
 			case '6' : list.reverse();
 					   break;
 			case '7' : cout << list.length() << endl;
+					   break;
+			case '8' : cout << "Enter the element to delete: ";
+					   cin >> x;
+					   list.del(x);
 					   break;
 		 	case 'h' : puts(help);
 					   break;
