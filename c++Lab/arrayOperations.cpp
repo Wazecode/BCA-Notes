@@ -16,6 +16,7 @@ class array {
         }
         void read();
         void insert(int);
+		void del(int);
         void print_array();
         int max();
         int min();
@@ -25,7 +26,12 @@ class array {
 int main() {
     array a;
     a.read();
-    a.insert(5);
+    a.print_array();
+
+	int x;
+	cout << "Enter the position to delete : ";
+	cin >> x;
+	a.del(x);
     a.print_array();
 
     cout << "the max :" << a.max() << endl
@@ -54,9 +60,9 @@ void array::print_array() {
 }
 
 void array::insert(int x) {
-    int pos;
+    int pos = 0;
     for (int i = 0; i < MAX_ARRAY_SIZE; i++) {
-        if (arr[i] < x) {
+        if (arr[i] < x && arr[i] != 0) {
             pos = i + 1;
         }
     }
@@ -69,11 +75,15 @@ void array::insert(int x) {
             }
         }
     }
-    for (int i = MAX_ARRAY_SIZE - 1; i > pos; i--) {
+    for (int i = count; i > pos; i--) {
         arr[i] = arr[i-1];
     }
 
     arr[pos] = x;
+	count++;
+}
+void array::del(int pos) {
+	for(int i = pos; i < count; i++) arr[i] = arr[i+1];
 }
 
 int array::max() {
