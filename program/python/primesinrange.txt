@@ -1,0 +1,55 @@
+# roll: VU21CSCI010058
+
+#PROGRAM:
+Write a Program to display prime numbers within the range
+
+#Code
+
+def primeCheck(x):
+    for i in range(2, x):
+        if(x%i == 0):
+            return False
+    return True
+
+def primesInRange(x,y):
+    for i in range(x,y):
+        if(primeCheck(i
+            print(i)
+
+x = int(input("Enter the starting of range:"))
+y = int(input("Enter the ending of range:"))
+
+primesInRange(x,y)
+
+
+I/P:
+Enter the starting of range:2
+Enter the ending of range:103
+
+O/P:
+2
+3
+5
+7
+11
+13
+17
+19
+23
+29
+31
+37
+41
+43
+47
+53
+59
+61
+67
+71
+73
+79
+83
+89
+97
+101
