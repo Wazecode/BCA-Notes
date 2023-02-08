@@ -1,0 +1,25 @@
+# roll: VU21CSCI010058
+
+#PROGRAM:
+Write a Program to sort list elements using insertion sort
+
+def insertionSort(l):
+    for i in range(1, len(l)):
+        tmp = l[i]
+        j = i - 1
+        while(j >= 0 and tmp < l[j]):
+            l[j+1] = l[j]
+            j = j - 1
+        l[j + 1] = tmp
+
+# list1 = list(map(int,input("Enter the elements in the list: ").split()))
+list1 = input("Enter the list: ").split()
+list1 = [int(x) for x in list1]
+insertionSort(list1)
+print("Sorted List: ", list1)
+
+#I/P:
+Enter the list: 43 34 22 567 -21 888 -989 55 -78
+
+#O/P:
+Sorted List:  [-989, -78, -21, 22, 34, 43, 55, 567, 888]
