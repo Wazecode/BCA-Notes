@@ -18,7 +18,7 @@ WHERE customer_name in (SELECT customer_name FROM borrower);
 ```
 
 
-#### 3 - Reterive set of names and cities of customers who have 'Perryridge' branch *??
+#### 3 - Reterive set of names and cities of customers who have loan at 'Perryridge' branch
 ```sql
 SELECT customer_name, customer_city
 FROM customer
