@@ -1,0 +1,76 @@
+MariaDB [clgdb]> create table ebook (
+    -> bid int,
+    -> bname varchar(31),
+    -> author varchar(31),
+    -> edition int,
+    -> yop int);
+Query OK, 0 rows affected (0.039 sec)
+
+MariaDB [clgdb]> desc find;
++----------+------------+------+-----+---------+-------+
+| Field    | Type       | Null | Key | Default | Extra |
++----------+------------+------+-----+---------+-------+
+| id       | int(11)    | YES  |     | NULL    |       |
+| bid      | int(11)    | YES  |     | NULL    |       |
+| due_date | varchar(7) | YES  |     | NULL    |       |
+| cost     | int(11)    | YES  |     | NULL    |       |
++----------+------------+------+-----+---------+-------+
+4 rows in set (0.001 sec)
+
+MariaDB [clgdb]> alter table find modify id int primary key;
+Query OK, 0 rows affected (0.067 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [clgdb]> desc find;
++----------+------------+------+-----+---------+-------+
+| Field    | Type       | Null | Key | Default | Extra |
++----------+------------+------+-----+---------+-------+
+| id       | int(11)    | NO   | PRI | NULL    |       |
+| bid      | int(11)    | YES  |     | NULL    |       |
+| due_date | varchar(7) | YES  |     | NULL    |       |
+| cost     | int(11)    | YES  |     | NULL    |       |
++----------+------------+------+-----+---------+-------+
+4 rows in set (0.001 sec)
+MariaDB [clgdb]> drop find
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'find' at line 1
+MariaDB [clgdb]> drop table find;
+Query OK, 0 rows affected (0.032 sec)
+
+MariaDB [clgdb]> create table find ( id int, bid int, due_date varchar(7), cost int, );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 1
+MariaDB [clgdb]> create table find ( id int, bid int, due_date varchar(7), cost int,
+    -> primary key (id),
+    -> foreign key (bid) references ebook(bid),
+    -> );
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near ')' at line 4
+MariaDB [clgdb]> create table find ( id int, bid int, due_date varchar(7), cost int, primary key (id), foreign key (bid) references ebook(bid) );
+Query OK, 0 rows affected (0.031 sec)
+
+MariaDB [clgdb]> desc find;
++----------+------------+------+-----+---------+-------+
+| Field    | Type       | Null | Key | Default | Extra |
++----------+------------+------+-----+---------+-------+
+| id       | int(11)    | NO   | PRI | NULL    |       |
+| bid      | int(11)    | YES  | MUL | NULL    |       |
+| due_date | varchar(7) | YES  |     | NULL    |       |
+| cost     | int(11)    | YES  |     | NULL    |       |
++----------+------------+------+-----+---------+-------+
+4 rows in set (0.001 sec)
+
+MariaDB [clgdb]> alter table find modify due_date varchar(15) not null;
+Query OK, 0 rows affected (0.060 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+MariaDB [clgdb]> desc find;
++----------+-------------+------+-----+---------+-------+
+| Field    | Type        | Null | Key | Default | Extra |
++----------+-------------+------+-----+---------+-------+
+| id       | int(11)     | NO   | PRI | NULL    |       |
+| bid      | int(11)     | YES  | MUL | NULL    |       |
+| due_date | varchar(15) | NO   |     | NULL    |       |
+| cost     | int(11)     | YES  |     | NULL    |       |
++----------+-------------+------+-----+---------+-------+
+4 rows in set (0.001 sec)
+
+MariaDB [clgdb]> 

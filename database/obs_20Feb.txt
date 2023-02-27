@@ -1,0 +1,8 @@
+CREATE TABLE ebook(
+	bid varchar(15),
+	bname varchar(31),
+	author varchar(15),
+	edition INT,
+	yop INT);
+	
+
