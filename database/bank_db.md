@@ -84,9 +84,8 @@ create table branch(
 	branch_name varchar2(15) constraint branch_name_pr primary key,
 	branch_city varchar2(15),
 	assets int);
-```
 
-```sql
+
 DESC branch;
 
 +-------------+-------------+------+-----+---------+-------+
@@ -106,9 +105,8 @@ create table customer(
 	customer_name varchar2(15) constraint customer_name_pr primary key,
 	customer_street varchar2(15),
 	customer_city varchar2(15));
-```
 
-```sql
+
 DESC customer;
 
 +-----------------+-------------+------+-----+---------+-------+
@@ -131,8 +129,8 @@ create table account(
 	balance int,
 	constraint accnum_branchname_pk primary key(account_number, branch_name),
 	foreign key (branch_name) references branch(branch_name));
-```
-```sql
+
+
 DESC account;
 
 +----------------+-------------+------+-----+---------+-------+
@@ -153,8 +151,9 @@ create table depositor(
 	constraint cname_anum_pr primary key(customer_name, account_number),
 	foreign key (customer_name) references customer(customer_name),
 	foreign key (account_number) references account(account_number));
-```
-```sql
+
+
+
 DESC depositor;
 
 +----------------+-------------+------+-----+---------+-------+
@@ -176,8 +175,8 @@ create table loan(
 	amount int,
 	constraint lnum_bname_pr primary key(loan_number, branch_name),
 	foreign key (branch_name) references branch(branch_name));
-```
-```sql
+
+
 DESC loan;
 
 +-------------+-------------+------+-----+---------+-------+
@@ -199,9 +198,8 @@ create table borrower(
 	constraint cname_lnum_pr primary key(customer_name, loan_number ),
 	foreign key (customer_name) references customer(customer_name),
 	foreign key (loan_number) references loan(loan_number));
-```
 
-```sql
+
 DESC borrower;
 
 +---------------+-------------+------+-----+---------+-------+
@@ -287,11 +285,95 @@ INSERT INTO borrower (customer_name , loan_number ) VALUES
 #### 1 - Retrieve all data from customer, branch, depositor, loan, account, borrower
 ```sql
 SELECT * FROM branch;
+
++-------------+-------------+---------+
+| branch_name | branch_city | assets  |
++-------------+-------------+---------+
+| Brighton    | Brooklyn    | 7100000 |
+| Downtown    | Brooklyn    | 9000000 |
+| Mianus      | Horseneck   |  400000 |
+| North Town  | Rye         | 3700000 |
+| Perryridge  | Horseneck   | 1700000 |
+| Pownal      | Bennington  |  300000 |
+| Redwood     | Palo Alto   | 2100000 |
+| Round Hill  | Horseneck   | 8000000 |
++-------------+-------------+---------+
+
 SELECT * FROM customer;
+
++---------------+-----------------+---------------+
+| customer_name | customer_street | customer_city |
++---------------+-----------------+---------------+
+| Adams         | Spring          | Pittsfield    |
+| Brooks        | Senator         | Brooklyn      |
+| Curry         | North           | Rye           |
+| Glenn         | Sand Hill       | Woodside      |
+| Green         | Walnut          | Stamford      |
+| Hayes         | Main            | Harrison      |
+| Johnson       | Alma            | Palo Alto     |
+| Jones         | Main            | Harrison      |
+| Linsday       | Park            | Pittsfield    |
+| Smith         | North           | Rye           |
+| Turner        | Putnam          | Stamford      |
+| Williams      | Nassau          | Princeton     |
++---------------+-----------------+---------------+
+
 SELECT * FROM depositor;
+
++---------------+----------------+
+| customer_name | account_number |
++---------------+----------------+
+| Hayes         | A-102          |
+| Johnson       | A-101          |
+| Johnson       | A-201          |
+| Jones         | A-217          |
+| Linsday       | A-222          |
+| Smith         | A-215          |
+| Turner        | A-305          |
++---------------+----------------+
+
 SELECT * FROM loan;
+
++-------------+-------------+--------+
+| loan_number | branch_name | amount |
++-------------+-------------+--------+
+| L-11        | Round Hill  |    900 |
+| L-14        | Downtown    |   1500 |
+| L-15        | Perryridge  |   1500 |
+| L-16        | Perryridge  |   1300 |
+| L-17        | Downtown    |   1000 |
+| L-23        | Redwood     |   2000 |
+| L-93        | Mianus      |    500 |
++-------------+-------------+--------+
+
 SELECT * FROM account;
+
++----------------+-------------+---------+
+| account_number | branch_name | balance |
++----------------+-------------+---------+
+| A-101          | Downtown    |     500 |
+| A-102          | Perryridge  |     400 |
+| A-201          | Brighton    |     900 |
+| A-215          | Mianus      |     700 |
+| A-217          | Brighton    |     750 |
+| A-222          | Redwood     |     700 |
+| A-305          | Round Hill  |     350 |
++----------------+-------------+---------+
+
 SELECT * FROM borrower;
+
++---------------+-------------+
+| customer_name | loan_number |
++---------------+-------------+
+| Adams         | L-16        |
+| Curry         | L-93        |
+| Hayes         | L-15        |
+| Jones         | L-17        |
+| Smith         | L-11        |
+| Smith         | L-23        |
+| Williams      | L-17        |
++---------------+-------------+
+
 ```
 
 #### 2 - Retrieve the names and cities of all borrowers
@@ -299,6 +381,17 @@ SELECT * FROM borrower;
 SELECT customer_name, customer_city
 FROM customer
 WHERE customer_name in (SELECT customer_name FROM borrower);
+
++---------------+---------------+
+| customer_name | customer_city |
++---------------+---------------+
+| Adams         | Pittsfield    |
+| Curry         | Rye           |
+| Hayes         | Harrison      |
+| Jones         | Harrison      |
+| Smith         | Rye           |
+| Williams      | Princeton     |
++---------------+---------------+
 ```
 
 
@@ -310,6 +403,13 @@ JOIN loan
 on loan.loan_number = borrower.loan_number
 JOIN branch
 on loan.branch_name = 'Perryridge' AND branch.branch_name = 'Perryridge';
+
++---------------+-------------+
+| customer_name | branch_city |
++---------------+-------------+
+| Hayes         | Horseneck   |
+| Adams         | Horseneck   |
++---------------+-------------+
 ```
 
 
@@ -318,6 +418,12 @@ on loan.branch_name = 'Perryridge' AND branch.branch_name = 'Perryridge';
 SELECT count(account_number)
 FROM account
 WHERE balance BETWEEN 700 AND 900;
+
++-----------------------+
+| count(account_number) |
++-----------------------+
+|                     4 |
++-----------------------+
 ```
 
 #### 5 - Retrieve the names of customer on streets with names ending in 'hill' - string pattern matching
@@ -325,6 +431,12 @@ WHERE balance BETWEEN 700 AND 900;
 SELECT customer_name
 FROM customer
 WHERE customer_street like '%hill';
+
++---------------+
+| customer_name |
++---------------+
+| Glenn         |
++---------------+
 ```
 
 #### 6 - Retrieve the names of customer with both account and loan at 'Perryridge'  
@@ -337,6 +449,12 @@ JOIN loan
 on loan.branch_name = 'Perryridge' and loan.loan_number = borrower.loan_number
 JOIN account
 on account.branch_name = 'Perryridge' and account.account_number = depositor.account_number;
+
++---------------+
+| customer_name |
++---------------+
+| Hayes         |
++---------------+
 ```
 
 #### 7 - Retrieve the names of customer with account but not a loan at 'Perryridge'  
@@ -349,6 +467,8 @@ JOIN loan
 on loan.branch_name != 'Perryridge' and loan.loan_number = borrower.loan_number
 JOIN account
 on account.branch_name = 'Perryridge' and account.account_number = depositor.account_number;
+
+*No output*
 ```
 
 #### 8 - List the name and cities of all borrowers
@@ -359,6 +479,18 @@ LEFT JOIN loan
 on borrower.loan_number = loan.loan_number
 JOIN branch
 on branch.branch_name = loan.branch_name;
+
++---------------+-------------+
+| customer_name | branch_city |
++---------------+-------------+
+| Adams         | Horseneck   |
+| Curry         | Horseneck   |
+| Hayes         | Horseneck   |
+| Jones         | Brooklyn    |
+| Smith         | Horseneck   |
+| Smith         | Palo Alto   |
+| Williams      | Brooklyn    |
++---------------+-------------+
 ```
 
 #### 9 - Retrieve the set of names of customers where accounts at a branch 'Hayes' has
@@ -368,15 +500,25 @@ FROM account
 JOIN depositor
 on depositor.account_number = account.account_number
 WHERE depositor.customer_name = 'Hayes';
++---------------+
+| customer_name |
++---------------+
+| Hayes         |
++---------------+
 ```
 
 #### 10 - Retrieve the set of names of branches having largest average balance
 ```sql
-SELECT max(avg_balance)
-FROM (
-	SELECT branch_name,avg(balance) as avg_balance
-	from account
-	GROUP by branch_name);
+SELECT branch_name
+from account
+group by branch_name
+ORDER by avg(balance) DESC
+limit 1;
++-------------+
+| branch_name |
++-------------+
+| Brighton    |
++-------------+
 ```
 #### 11 - Retrieve the whose assets are greater than the assets of some branch in brooklyn.
 ```sql
@@ -386,6 +528,12 @@ WHERE assets > any(
 	SELECT assets
 	FROM branch
 	WHERE branch_city = 'brooklyn');
++-------------+
+| branch_name |
++-------------+
+| Downtown    |
+| Round Hill  |
++-------------+
 ```
 
 #### 12 - Retrieve the names of customers with both account and loans at 'Perryridge' branch.
@@ -400,7 +548,13 @@ LEFT JOIN account
 on account.account_number = depositor.account_number
 LEFT JOIN loan
 on loan.loan_number = borrower.loan_number
-WHERE loan.branch_name = 'Perryridge' OR account.branch_name = 'Perryridge'
+WHERE loan.branch_name = 'Perryridge' OR account.branch_name = 'Perryridge';
++---------------+
+| customer_name |
++---------------+
+| Adams         |
+| Hayes         |
++---------------+
 ```
 
 #### 13 - Retrieve the names of customer at 'Perryridge' branch in alphabetical order.
@@ -416,37 +570,55 @@ on account.account_number = depositor.account_number
 LEFT JOIN loan
 on loan.loan_number = borrower.loan_number
 WHERE loan.branch_name = 'Perryridge' or account.branch_name = 'Perryridge'
-ORDER by customer.customer_name ASC
+ORDER by customer.customer_name ASC;
++---------------+
+| customer_name |
++---------------+
+| Adams         |
+| Hayes         |
++---------------+
 ```
 #### 14 - Retrieve the loan data order by decreasing amonuts and than increasing loan numbers
 ```sql
 SELECT * FROM loan
 ORDER by amount DESC , loan_number;
++-------------+-------------+--------+
+| loan_number | branch_name | amount |
++-------------+-------------+--------+
+| L-23        | Redwood     |   2000 |
+| L-14        | Downtown    |   1500 |
+| L-15        | Perryridge  |   1500 |
+| L-16        | Perryridge  |   1300 |
+| L-17        | Downtown    |   1000 |
+| L-11        | Round Hill  |    900 |
+| L-93        | Mianus      |    500 |
++-------------+-------------+--------+
 ```
 
 #### 15 - Retrieve the names of branches having atleast 1 account having average balance.
-
 #### 16 - Retrieve the names of branches having atleast one account, with size of set of customers having one account one account at that branch
 #### 17 - Print average balance of all accounts.
 ```sql
 SELECT avg(balance) FROM account;
++--------------+
+| avg(balance) |
++--------------+
+|     614.2857 |
++--------------+
 ```
 
 #### 18 - Find the names of branches having atleast 1 account with average balances of accounts at each branch, if that balance is above 700
-#### 19 - Find a name or names of branch / branches having largest average balance.
-```sql
-SELECT max(avg_balance)
-FROM (
-    SELECT branch_name,avg(balance) as avg_balance
-    from account
-    GROUP by branch_name);
-```
-#### 20 - Find the number of customers
+#### 19 - Find the number of customers
 ```sql
 SELECT count(customer_name) from customer;
++----------------------+
+| count(customer_name) |
++----------------------+
+|                   12 |
++----------------------+
 ```
 
-#### 21 - Find average balance of all customers in 'Harrison', having atleast 2 accounts.
+#### 20 - Find average balance of all customers in 'Harrison', having atleast 2 accounts.
 ```sql
 SELECT avg(balance)
 FROM account
@@ -455,4 +627,9 @@ on depositor.account_number = account.account_number
 JOIN customer
 on customer.customer_name = depositor.customer_name
 where (SELECT count(customer_name) FROM depositor) >= 2 AND customer.customer_city = 'Harrison';
++--------------+
+| avg(balance) |
++--------------+
+|     575.0000 |
++--------------+
 ```
