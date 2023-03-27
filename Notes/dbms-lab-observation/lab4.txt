@@ -1,0 +1,357 @@
+➜  ~ mysql -u shu -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 3
+Server version: 10.11.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use clgdb;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [clgdb]> show tables;
++-----------------+
+| Tables_in_clgdb |
++-----------------+
+| course          |
+| ebook           |
+| find            |
+| product         |
+| student         |
++-----------------+
+5 rows in set (0.000 sec)
+
+MariaDB [clgdb]> create table Employee(
+    -> id int,
+    -> name varchar(31),
+    -> age int,
+    -> address varchar(63)'
+    '> ;
+    '> ;
+    '> au.
+    '> ;
+    '> Ctrl-C -- exit!
+Aborted
+➜  ~ mysql -u shu -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 4
+Server version: 10.11.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use clgdb;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [clgdb]> create table Employee(
+     id int,
+     name varchar(31),
+     age int,
+     address varchar(63),
+     salary int,
+     deptid int);
+Query OK, 0 rows affected (0.031 sec)
+
+MariaDB [clgdb]> desc Employee;
++---------+-------------+------+-----+---------+-------+
+| Field   | Type        | Null | Key | Default | Extra |
++---------+-------------+------+-----+---------+-------+
+| id      | int(11)     | YES  |     | NULL    |       |
+| name    | varchar(31) | YES  |     | NULL    |       |
+| age     | int(11)     | YES  |     | NULL    |       |
+| address | varchar(63) | YES  |     | NULL    |       |
+| salary  | int(11)     | YES  |     | NULL    |       |
+| deptid  | int(11)     | YES  |     | NULL    |       |
++---------+-------------+------+-----+---------+-------+
+6 rows in set (0.001 sec)
+
+MariaDB [clgdb]> create Department(
+    -> did int,
+    -> dname varchar(31),
+    -> jid int);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'Department(
+did int,
+dname varchar(31),
+jid int)' at line 1
+MariaDB [clgdb]> create table Department( did int, dname varchar(31), jid int);
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [clgdb]> desc Department;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| did   | int(11)     | YES  |     | NULL    |       |
+| dname | varchar(31) | YES  |     | NULL    |       |
+| jid   | int(11)     | YES  |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.001 sec)
+
+MariaDB [clgdb]> insert into Employee values
+    -> (1, 'Shuwais', 20, 'Vskp' , 100000, 2),
+    -> (2, 'Pravesh, 30, 'Rbly', 3000000, 1),
+    '> (3, 'Shivam', 34, 'Punj', 200000, 4),
+    '> (4, 'Apurv', 18, 'Bhr', 4000000, 3),
+    '> (5, 'Kamal', 15, 'Hyd', 6000000, 2);
+    '> ;
+    '> ;
+    '> ;
+    '> Ctrl-C -- exit!
+Aborted
+➜  ~ mysql -u shu -p
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 5
+Server version: 10.11.2-MariaDB Arch Linux
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> use clgdb;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+MariaDB [clgdb]> (1, 'Shuwais', 20, 'Vskp' , 100000, 2),
+    -> 
+    -> 
+    -> 
+    -> 
+    -> a;tnahue
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '1, 'Shuwais', 20, 'Vskp' , 100000, 2),
+
+
+
+
+a' at line 1
+    -> insert into Employee values
+    -> (1, 'Shuwais', 20, 'Vskp' , 100000, 2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'tnahue
+insert into Employee values
+(1, 'Shuwais', 20, 'Vskp' , 100000, 2)' at line 1
+MariaDB [clgdb]> tnahue insert into Employee value (1, 'Shuwais', 20, 'Vskp' , 100000, 2);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'tnahue insert into Employee value (1, 'Shuwais', 20, 'Vskp' , 100000, 2)' at line 1
+MariaDB [clgdb]> insert into Employee value (1, 'Shuwais', 20, 'Vskp' , 100000, 2);
+Query OK, 1 row affected (0.004 sec)
+
+MariaDB [clgdb]> insert into Employee values
+    -> (2, 'Pravesh', 30, 'Rbly', 3000000, 1),
+    -> (3, 'Shivam', 34, 'Punj', 200000, 4),
+    -> (4, 'Apurv', 18, 'Bhr', 4000000, 3),
+    -> (5, 'Kamal', 15, 'Hyd', 6000000, 2);
+Query OK, 4 rows affected (0.007 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [clgdb]> select * from Employee;
++------+---------+------+---------+---------+--------+
+| id   | name    | age  | address | salary  | deptid |
++------+---------+------+---------+---------+--------+
+|    1 | Shuwais |   20 | Vskp    |  100000 |      2 |
+|    2 | Pravesh |   30 | Rbly    | 3000000 |      1 |
+|    3 | Shivam  |   34 | Punj    |  200000 |      4 |
+|    4 | Apurv   |   18 | Bhr     | 4000000 |      3 |
+|    5 | Kamal   |   15 | Hyd     | 6000000 |      2 |
++------+---------+------+---------+---------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [clgdb]> create table Emp_bk( id int, name varchar(31), age int, address varchar(63), salary int, deptid int);
+Query OK, 0 rows affected (0.024 sec)
+
+MariaDB [clgdb]> insert into Emp_bk select * from Employee;
+Query OK, 5 rows affected (0.020 sec)
+Records: 5  Duplicates: 0  Warnings: 0
+
+MariaDB [clgdb]> select * from Employee;
++------+---------+------+---------+---------+--------+
+| id   | name    | age  | address | salary  | deptid |
++------+---------+------+---------+---------+--------+
+|    1 | Shuwais |   20 | Vskp    |  100000 |      2 |
+|    2 | Pravesh |   30 | Rbly    | 3000000 |      1 |
+|    3 | Shivam  |   34 | Punj    |  200000 |      4 |
+|    4 | Apurv   |   18 | Bhr     | 4000000 |      3 |
+|    5 | Kamal   |   15 | Hyd     | 6000000 |      2 |
++------+---------+------+---------+---------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [clgdb]> update Employee
+    -> set salary = salary * 1.25
+    -> where age > 29;
+Query OK, 2 rows affected (0.015 sec)
+Rows matched: 2  Changed: 2  Warnings: 0
+
+MariaDB [clgdb]> select * from Employee;
++------+---------+------+---------+---------+--------+
+| id   | name    | age  | address | salary  | deptid |
++------+---------+------+---------+---------+--------+
+|    1 | Shuwais |   20 | Vskp    |  100000 |      2 |
+|    2 | Pravesh |   30 | Rbly    | 3750000 |      1 |
+|    3 | Shivam  |   34 | Punj    |  250000 |      4 |
+|    4 | Apurv   |   18 | Bhr     | 4000000 |      3 |
+|    5 | Kamal   |   15 | Hyd     | 6000000 |      2 |
++------+---------+------+---------+---------+--------+
+5 rows in set (0.000 sec)
+
+MariaDB [clgdb]> delete from Employee
+    -> where age < 20;
+Query OK, 2 rows affected (0.015 sec)
+
+MariaDB [clgdb]> select * from Employee;
++------+---------+------+---------+---------+--------+
+| id   | name    | age  | address | salary  | deptid |
++------+---------+------+---------+---------+--------+
+|    1 | Shuwais |   20 | Vskp    |  100000 |      2 |
+|    2 | Pravesh |   30 | Rbly    | 3750000 |      1 |
+|    3 | Shivam  |   34 | Punj    |  250000 |      4 |
++------+---------+------+---------+---------+--------+
+3 rows in set (0.000 sec)
+
+MariaDB [clgdb]> select name, id 
+    -> from Employee
+    -> where salary = (select min(salary) from Employee)
+    -> group by deptid;
++---------+------+
+| name    | id   |
++---------+------+
+| Shuwais |    1 |
++---------+------+
+1 row in set (0.005 sec)
+
+MariaDB [clgdb]> select name, id  from Employee where salary = (select min(salary) from Employee group by deptid);
+ERROR 1242 (21000): Subquery returns more than 1 row
+MariaDB [clgdb]> select name, id  from Employee where salary = (select min(salary) from Employee group by deptid);
+ERROR 1242 (21000): Subquery returns more than 1 row
+MariaDB [clgdb]> select name, id, min(salary) from Employee group by deptid;
++---------+------+-------------+
+| name    | id   | min(salary) |
++---------+------+-------------+
+| Pravesh |    2 |     3750000 |
+| Shuwais |    1 |      100000 |
+| Shivam  |    3 |      250000 |
++---------+------+-------------+
+3 rows in set (0.001 sec)
+
+MariaDB [clgdb]> insert into Employee value (9, 'Shu', 20, 'Vskp' , 100, 2);
+Query OK, 1 row affected (0.015 sec)
+
+MariaDB [clgdb]> select name, id, min(salary) from Employee group by deptid;
++---------+------+-------------+
+| name    | id   | min(salary) |
++---------+------+-------------+
+| Pravesh |    2 |     3750000 |
+| Shuwais |    1 |         100 |
+| Shivam  |    3 |      250000 |
++---------+------+-------------+
+3 rows in set (0.000 sec)
+
+MariaDB [clgdb]> select name, id, min(salary) from Employee group by deptid desc;
++---------+------+-------------+
+| name    | id   | min(salary) |
++---------+------+-------------+
+| Shivam  |    3 |      250000 |
+| Shuwais |    1 |         100 |
+| Pravesh |    2 |     3750000 |
++---------+------+-------------+
+3 rows in set (0.000 sec)
+
+MariaDB [clgdb]> select name, id, min(salary) from Employee group by deptid asc;
++---------+------+-------------+
+| name    | id   | min(salary) |
++---------+------+-------------+
+| Pravesh |    2 |     3750000 |
+| Shuwais |    1 |         100 |
+| Shivam  |    3 |      250000 |
++---------+------+-------------+
+3 rows in set (0.001 sec)
+
+MariaDB [clgdb]> select * from Employee
+    -> ;
++------+---------+------+---------+---------+--------+
+| id   | name    | age  | address | salary  | deptid |
++------+---------+------+---------+---------+--------+
+|    1 | Shuwais |   20 | Vskp    |  100000 |      2 |
+|    2 | Pravesh |   30 | Rbly    | 3750000 |      1 |
+|    3 | Shivam  |   34 | Punj    |  250000 |      4 |
+|    9 | Shu     |   20 | Vskp    |     100 |      2 |
++------+---------+------+---------+---------+--------+
+4 rows in set (0.000 sec)
+
+MariaDB [clgdb]> select name, id, min(salary) from Employee group by deptid;
++---------+------+-------------+
+| name    | id   | min(salary) |
++---------+------+-------------+
+| Pravesh |    2 |     3750000 |
+| Shuwais |    1 |         100 |
+| Shivam  |    3 |      250000 |
++---------+------+-------------+
+3 rows in set (0.001 sec)
+
+MariaDB [clgdb]> select name, id  from Employee e where salary = (select min(salary) from Employee where deptid = e.deptid);
++---------+------+
+| name    | id   |
++---------+------+
+| Pravesh |    2 |
+| Shivam  |    3 |
+| Shu     |    9 |
++---------+------+
+3 rows in set (0.001 sec)
+
+MariaDB [clgdb]> delete from Employee where id = 9
+    -> ;
+Query OK, 1 row affected (0.015 sec)
+
+MariaDB [clgdb]> select * from Employee
+    -> ;
++------+---------+------+---------+---------+--------+
+| id   | name    | age  | address | salary  | deptid |
++------+---------+------+---------+---------+--------+
+|    1 | Shuwais |   20 | Vskp    |  100000 |      2 |
+|    2 | Pravesh |   30 | Rbly    | 3750000 |      1 |
+|    3 | Shivam  |   34 | Punj    |  250000 |      4 |
++------+---------+------+---------+---------+--------+
+3 rows in set (0.000 sec)
+
+MariaDB [clgdb]> insert into Department values
+    -> (1, 'Design', 2),
+    -> (2, 'Dev', 4),
+    -> (3, 'Testing', 8),
+    -> (4, 'finance', 10);
+Query OK, 4 rows affected (0.015 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+MariaDB [clgdb]> select * from Department;
++------+---------+------+
+| did  | dname   | jid  |
++------+---------+------+
+|    1 | Design  |    2 |
+|    2 | Dev     |    4 |
+|    3 | Testing |    8 |
+|    4 | finance |   10 |
++------+---------+------+
+4 rows in set (0.000 sec)
+
+MariaDB [clgdb]> select deptid, name, d.jid, dname 
+    -> from Employee
+    -> join Department
+    -> on aoue;
+ERROR 1054 (42S22): Unknown column 'd.jid' in 'field list'
+MariaDB [clgdb]> select deptid, name, jid, dname 
+    -> from Employee
+    -> join Department
+    -> on deptid = did
+    -> where dname = 'finance';
++--------+--------+------+---------+
+| deptid | name   | jid  | dname   |
++--------+--------+------+---------+
+|      4 | Shivam |   10 | finance |
++--------+--------+------+---------+
+1 row in set (0.001 sec)
+
+MariaDB [clgdb]> 
